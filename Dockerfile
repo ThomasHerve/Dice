@@ -12,4 +12,4 @@ RUN npm install
 COPY index.js /usr/src/bot
 
 # Start me!
-CMD ["node", "index.js"]
+CMD ["node", "/usr/src/bot/index.js"]

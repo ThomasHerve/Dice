@@ -5,7 +5,7 @@ metadata:
 data:
   config.json: |
     {
-	    \"token\": \"{{ .Values.token }}\",
-	    \"gmId\": \"{{ .Values.gmId }}\"
+      \"token\": \"{{ .Values.token }}\",
+      \"gmId\": \"{{ .Values.gmId }}\"
     } 
    

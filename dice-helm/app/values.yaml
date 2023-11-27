@@ -4,6 +4,9 @@
 
 replicaCount: 1
 
+token:
+gmId: 
+
 image:
   repository: nginx
   pullPolicy: IfNotPresent

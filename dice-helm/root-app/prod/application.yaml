@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dice
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: dice-helm/app
+    server: 'https://kubernetes.default.svc'
+  project: dice
+  source:
+    repoURL: git@github.com:ThomasHerve/Dice.git
+    path: dice
+    targetRevision: main
+    helm:
+      valueFiles:
+        - envs/prod/helm/values.yaml
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - PruneLast=true
+      - CreateNamespace=true
+      - Validate=true
+  ignoreDifferences:
+    # pod toleration causes a diff because the target cluster is different
+    - group: ""
+      kind: Pod
+      jsonPointers:
+        - /spec/tolerations

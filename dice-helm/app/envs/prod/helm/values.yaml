@@ -1,0 +1,8 @@
+namespace: dice
+ingress:
+  enabled: false
+image:
+  repository: thomasherve/dice
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"

@@ -7,12 +7,12 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: dice-helm/app
+    namespace: dice
     server: 'https://kubernetes.default.svc'
   project: dice
   source:
     repoURL: git@github.com:ThomasHerve/Dice.git
-    path: dice
+    path: dice-helm/app
     targetRevision: main
     helm:
       valueFiles:
